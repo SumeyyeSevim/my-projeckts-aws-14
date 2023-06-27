@@ -43,7 +43,7 @@ def find_persons(keyword):
     query = f"""
     SELECT * FROM phonebook WHERE name like '%{keyword.strip().lower()}%';
     """
-    cursor.execute(query)
+    cursor.execute(query) 
     result = cursor.fetchall() 
     persons =[{'id':row[0], 'name':row[1].strip().title(), 'number':row[2]} for row in result] 
     if len(persons) == 0: 
@@ -115,9 +115,9 @@ def find_records():
     if request.method == 'POST':
         keyword = request.form['username']
         persons_app = find_persons(keyword) 
-        return render_template('index.html', persons_html=persons_app, keyword=keyword, show_result=True, developer_name='oktay')
+        return render_template('index.html', persons_html=persons_app, keyword=keyword, show_result=True, developer_name='sumeyye')
     else:
-        return render_template('index.html', show_result=False, developer_name='oktay')
+        return render_template('index.html', show_result=False, developer_name='sumeyye')
 
 
 # Write a function named `add_record` which inserts new record to the database using `GET` and `POST` methods,
